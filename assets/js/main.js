@@ -297,3 +297,4 @@ document.querySelectorAll('.skill-category').forEach(category => {
 		}, 150);
 	});
 });
+

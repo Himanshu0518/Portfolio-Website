@@ -4877,3 +4877,167 @@ body.is-preload #intro:not(.hidden)+#header+#nav {
 		transform: translateY(0);
 	}
 }
+
+    .blogs-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 200px;
+            max-width: 450px;
+        }
+
+        .blog:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-title {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .blog p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .actions {
+            margin-top: auto;
+        }
+
+        .blog-button {
+            display: inline-block;
+            background: linear-gradient(135deg, rgb(32, 203, 218), rgb(28, 180, 195));
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+        }
+
+        .blog-button:hover {
+            background: linear-gradient(135deg, rgb(28, 180, 195), rgb(24, 156, 170));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(32, 203, 218, 0.3);
+        }
+
+        .blog-button:active {
+            transform: translateY(0);
+        }
+
+        /* Mobile-first responsive breakpoints */
+        @media (max-width: 768px) {
+            .blogs-section {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                gap: 1.5rem;
+            }
+            
+            .blog {
+                padding: 1.5rem;
+                min-height: auto;
+                max-width: none;
+            }
+            
+            .blog-title {
+                font-size: 1.2rem;
+            }
+            
+            .blog-button {
+                padding: 14px 20px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .blogs-section {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 900px;
+            }
+            
+            .blog {
+                max-width: 400px;
+            }
+        }
+
+        @media (min-width: 1025px) and (max-width: 1399px) {
+            .blogs-section {
+                grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+                max-width: 1200px;
+            }
+            
+            .blog {
+                max-width: 380px;
+            }
+        }
+
+        /* Large screens - max 3 columns */
+        @media (min-width: 1400px) {
+            .blogs-section {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                max-width: 1350px; /* This ensures max 3 columns (3 * 400px + gaps) */
+            }
+            
+            .blog {
+                max-width: 420px;
+                min-height: 220px;
+            }
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            .blog,
+            .blog-button {
+                transition: none;
+            }
+            
+            .blog:hover {
+                transform: none;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+                color: #e0e0e0;
+            }
+            
+            .blog {
+                background: #2d2d2d;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+            
+            .blog-title {
+                color: #ffffff;
+            }
+            
+            .blog p {
+                color: #b0b0b0;
+            }
+        }
